@@ -66,13 +66,12 @@ router.put('/:id', auth, async (req, res) => {
     // res.send('Update band');
     const { name, email, phone, type,genre, setup, description, youtubeVideoId } = req.body;
 
-    //Buid band object:
-    const contactField = {};
+    //Build band object:
+    const bandField = {};
     if (name) bandField.name = name;
     if (email) bandField.email = email;
     if (phone) bandField.phone = phone;
     if (type) bandField.type = type;
-
     if (type) bandField.genre = genre;
     if (type) bandField.setup = setup;
     if (type) bandField.description = description;
