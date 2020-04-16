@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const ContactSchema = mongoose.Schema({
-    user: { 
+const BandSchema = mongoose.Schema({
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user' //referes to collection users
     },
@@ -20,10 +20,26 @@ const ContactSchema = mongoose.Schema({
         type: String,
         default: "personal"
     },
+    genre: {
+        type: String,
+        required: true
+    },
+    setup: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    youtubeVideoId: {
+        type: String,
+        required: true
+    },
     date: {
         type: String,
         default: Date.now
     },
 })
 
-module.exports = mongoose.model('contact', ContactSchema);
+module.exports = mongoose.model('band', ContactSchema);

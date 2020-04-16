@@ -24,7 +24,7 @@ app.use(express.json({ extended: false }));
 //Everything that goes to /api/ PATH get forwarded into the file ROUTE that is required
 app.use('/api/users', require('./routes/user'))
 app.use('/api/auth', require('./routes/auth'))
-app.use('/api/contacts', require('./routes/contacts'))
+app.use('/api/bands', require('./routes/bands'))
 
 //Serve static assets REACT in production
 if (process.env.NODE_ENV === 'production') { //check environment, if in production
