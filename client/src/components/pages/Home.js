@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
-import Contacts from '../contacts/Contacts'
-import ContactForm from '../contacts/ContactForm'
-import ContactFilter from '../contacts/contactFilter'
+import Bands from '../bands/Bands'
+import BandForm from '../bands/BandForm'
+import BandFilter from '../bands/bandFilter'
 import AuthContext from '../../context/auth/authContext'
 
 
@@ -19,11 +19,11 @@ const Home = () => {
     return (
         <div className="grid-2">
             <div>
-                <ContactForm /> {/* input */}
+                <BandForm /> {/* input */}
             </div>
             <div>
-                <ContactFilter />
-                <Contacts /> {/* output */}
+                <BandFilter />
+                <Bands /> {/* output */}
             </div>
         </div>
     )

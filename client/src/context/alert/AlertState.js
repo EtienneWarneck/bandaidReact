@@ -35,7 +35,7 @@ const AlertState = props => {
 
             {props.children}
 
-            {/* {console.log("ContactState, props.children:", props.children)} */}
+            {/* {console.log( props.children)} */}
 
         </AlertContext.Provider>
     )

@@ -123,7 +123,7 @@ const AuthState = props => {
 
 
     return (
-        //wrap entire app with the ContactContext OBJECT
+        //wrap entire app with the BandContext OBJECT
         <AuthContext.Provider
             value={
                 {
@@ -140,13 +140,13 @@ const AuthState = props => {
                     clearErrors
                 }}>
 
-            {/* {console.log("ContactState PAGE, state.contacts", state.contacts)}
-            {console.log("ContactState PAGE, state.current", state.current)}
-            {console.log("ContactState PAGE, state.filtered", state.filtered)} */}
+            {/* {console.log( state.bands)}
+            {console.log(state.current)}
+            {console.log(state.filtered)} */}
 
             {props.children}
 
-            {/* {console.log("ContactState PAGE, props.children:", props.children)} */}
+            {/* {console.log(props.children)} */}
 
         </AuthContext.Provider>
     )

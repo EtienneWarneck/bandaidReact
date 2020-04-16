@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react'; //HOOK
-import ContactContext from '../../context/contact/contactContext';
-// import { ADD_CONTACT } from '../../context/types';
+import BandContext from '../../context/band/bandContext';
+// import { ADD_BAND } from '../../context/types';
 
-const ContactForm = () => {
+const BandForm = () => {
 
-    const contactContext = useContext(ContactContext);
+    const bandContext = useContext(BandContext);
 
     //destructuring to unpack values into distinct variables:
-    const { addContact, updateContact, clearCurrent, current } = contactContext;
+    const { addBand, updateBand, clearCurrent, current } = bandContext;
     //--------------------------
 
     //BASIC HOOK - useState() - most important hook. FORMAT -> const [state, setState] = useState(intialValue)
@@ -22,28 +22,28 @@ const ContactForm = () => {
     // Only use on useState() with objects when multiple things need to be changed together.
     // React doesn't merge automatically old and new data = more flexibility (state is merged in class-based)
     // Independent from other places. So we can simply share functionalities between components.
-    // Destructuring: contact is the CHANGING STATE OF THE FORM, the data. setUserContact to update the data.
+    // Destructuring: band is the CHANGING STATE OF THE FORM, the data. setUserBand to update the data.
     // ALWAYS used on root level, NEVER in a nested function or if statement,...
 
-    const [userContact, setUserContact] = useState({ //We declare a state variable called userContact and set it to :
+    const [userBand, setUserBand] = useState({ //We declare a state variable called userBand and set it to :
         name: '',
         email: '',
         phone: '',
         type: 'personal'
     });
 
-    //Pull the values out of userContact.
-    const { name, email, phone, type } = userContact;
+    //Pull the values out of userBand.
+    const { name, email, phone, type } = userBand;
 
     //a function to use on every input's change. 
-    const onChange = e => setUserContact({ ...userContact, [e.target.name]: e.target.value })
+    const onChange = e => setUserBand({ ...userBand, [e.target.name]: e.target.value })
 
     const submitForm = e => {
         e.preventDefault();
         if (current === null) { //if nothing has changed, (if the Edit button wasn't pressed)
-            addContact(userContact); // Add the empty values from useState's current state
+            addBand(userBand); // Add the empty values from useState's current state
         } else {
-            updateContact(userContact); // #1 Whatever changes in the Form is SUBMITTED here. Once submitted, it's called in #2
+            updateBand(userBand); // #1 Whatever changes in the Form is SUBMITTED here. Once submitted, it's called in #2
         };
         clearAll();
     };
@@ -51,16 +51,16 @@ const ContactForm = () => {
     //useEffect accepts a function that will run AFTER and for every render cycle.
     useEffect(() => {
         if (current !== null) {
-            setUserContact(current) //set LEFT form with current
+            setUserBand(current) //set LEFT form with current
         } else {
-            setUserContact({  //default state (nothing)
+            setUserBand({  //default state (nothing)
                 name: '',
                 email: '',
                 phone: '',
                 type: 'professional'
             });
         }
-    },[contactContext, current]); //adding dependencies. useEffect will only be called if those change. ( similar to componentDidMount() )
+    },[bandContext, current]); //adding dependencies. useEffect will only be called if those change. ( similar to componentDidMount() )
 
 
     const clearAll = () => {
@@ -71,15 +71,15 @@ const ContactForm = () => {
 
     return (
         <form onSubmit={submitForm}>
-            {/* <h2 className="text-primary">Add contact</h2> */}
-            <h2 className="text-primary">{current ? 'Edit Contact' : 'Add Contact'}</h2>
+            {/* <h2 className="text-primary">Add band</h2> */}
+            <h2 className="text-primary">{current ? 'Edit Band' : 'Add Band'}</h2>
             <input
                 type="text"
                 placeholder="name"
                 name="name"
-                value={name} //contact.name
-                onChange={onChange} //The setUserContact function from UseState() is called via onChange function. 
-            //onChange={event => setUserContact({name: event.target.value})} 
+                value={name} //band.name
+                onChange={onChange} //The setUserBand function from UseState() is called via onChange function. 
+            //onChange={event => setUserBand({name: event.target.value})} 
             //will print the Warning A component is changing a controlled input of type email to be uncontrolled.
             //if one useState was created just for the name such as `const [enteredName, setEnteredName] = useState('')`
             //it would look like : `onChange={event => {setEnteredName(event.target.Name)}}`
@@ -99,7 +99,7 @@ const ContactForm = () => {
                 onChange={onChange}
             />
 
-            <h5>Contact Type:</h5>
+            <h5>Band Type:</h5>
             <input
                 type="radio"
                 name="type"
@@ -118,8 +118,8 @@ const ContactForm = () => {
             <div>
                 <input
                     type="submit"
-                    // value="Add Contact"
-                    value={current ? 'Update Contact' : 'Add Contact'}
+                    // value="Add Band"
+                    value={current ? 'Update Band' : 'Add Band'}
                     className="btn btn-primary btn-block"
                 />
 
@@ -136,4 +136,4 @@ const ContactForm = () => {
     )
 }
 
-export default ContactForm;
+export default BandForm;

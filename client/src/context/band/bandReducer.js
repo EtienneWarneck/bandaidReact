@@ -1,57 +1,55 @@
 import {
-    GET_CONTACTS,
-    ADD_CONTACT,
-    DELETE_CONTACT,
-    CLEAR_CONTACTS,
+    GET_BANDS,
+    ADD_BAND,
+    DELETE_BAND,
+    CLEAR_BANDS,
     SET_CURRENT,
     CLEAR_CURRENT,
-    UPDATE_CONTACT,
-    FILTER_CONTACTS,
+    UPDATE_BAND,
+    FILTER_BANDS,
     CLEAR_FILTER,
-    CONTACT_ERROR
+    BAND_ERROR
 } from '../types';
-
-
 
 export default (state, action) => {
     switch (action.type) {
-        case GET_CONTACTS:
+        case GET_BANDS:
             return {
                 ...state,
-                contacts: action.payload,
+                bands: action.payload,
                 loading: false
             }
-        case ADD_CONTACT:
+        case ADD_BAND:
             return {
                 ...state, //return the current state, Immutable
-                contacts: [action.payload, ...state.contacts], //return a new array
+                bands: [action.payload, ...state.bands], //return a new array
                 // new array: with spread operator to copy what was there before + action.payload = DATA
-                //action.payload gors first to have new contact on top of list (before and after reloading)
+                //action.payload gors first to have new band on top of list (before and after reloading)
                 loading: false
             };
 
-        case UPDATE_CONTACT: //#3 reducer catches the payload 
+        case UPDATE_BAND: //#3 reducer catches the payload 
             return {
                 ...state,//current state. Immutable
-                contacts: state.contacts.map(contact => // and maps through all of the contacts...
-                    contact._id === action.payload._id ? action.payload : contact),// looks for the payload id. 
-                //If matches, will send the new updated info (action.payload) and replace it, else original contact
+                bands: state.bands.map(band => // and maps through all of the bands...
+                    band._id === action.payload._id ? action.payload : band),// looks for the payload id. 
+                //If matches, will send the new updated info (action.payload) and replace it, else original band
                 loading: false
             };
 
-        case DELETE_CONTACT:
+        case DELETE_BAND:
             return {
                 ...state,//current state. Immutable
-                //return all contacts that are not current id
-                //filter out the specific contact
-                contacts: state.contacts.filter(contact => contact._id !== action.payload), //action.payload is the ID
+                //return all bands that are not current id
+                //filter out the specific band
+                bands: state.bands.filter(band => band._id !== action.payload), //action.payload is the ID
                 loading: false
             };
 
-        case CLEAR_CONTACTS:
+        case CLEAR_BANDS:
             return {
                 ...state,
-                contacts: null,
+                bands: null,
                 filtered: null,
                 error: null,
                 current: null
@@ -69,12 +67,12 @@ export default (state, action) => {
                 current: null //
             };
 
-        case FILTER_CONTACTS:
+        case FILTER_BANDS:
             return {
                 ...state,
-                filtered: state.contacts.filter(contact => {
+                filtered: state.bands.filter(band => {
                     const regex = new RegExp(`${action.payload}`, `gi`) //text in payload gi : a case insensitive search to match lowercase or uppercase
-                    return contact.name.match(regex) || contact.email.match(regex);
+                    return band.name.match(regex) || band.email.match(regex);
                 })
             };
 
@@ -84,7 +82,7 @@ export default (state, action) => {
                 filtered: null
             };
 
-        case CONTACT_ERROR:
+        case BAND_ERROR:
             return {
                 ...state,
                 error: action.payload

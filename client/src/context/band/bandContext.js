@@ -1,6 +1,6 @@
 import {createContext} from 'react';
 
-const contactContext = createContext(); 
+const bandContext = createContext(); 
 
 // Creates a Context OBJECT. 
 
@@ -13,4 +13,4 @@ const contactContext = createContext();
 //contextAPI: a great way of avoiding passing data from component to component to component to... if we don't need them 
 //in these in-between components. Great way of bypassing components and directly passing data from A to D.
 
-export default contactContext;
+export default bandContext;

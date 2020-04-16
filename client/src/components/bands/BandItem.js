@@ -1,20 +1,20 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import ContactContext from '../../context/contact/contactContext';
+import BandContext from '../../context/band/bandContext';
 
-const ContactItem = ({ contactPassed }) => {   //{contactPassed} is the prop passed in from Contacts.js
+const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in from Bands.js
 
 //USE CONTEXT
-    const contactContext = useContext(ContactContext); //holds all the data
-    // console.log("ContactItem PAGE, useContext(), ALL CONTACTS", contactContext)
+    const bandContext = useContext(BandContext); //holds all the data
+    // console.log("BandItem PAGE, useContext(), ALL BANDS", bandContext)
     
-    const { deleteContact, setCurrent, clearCurrent } = contactContext; //create an action
+    const { deleteBand, setCurrent, clearCurrent } = bandContext; //create an action
     
-    const { _id, name, email, phone, type } = contactPassed; //destructuring, EACH CONTACT
-    // console.log("ContactItem PAGE, contactPassed, CONTACT #", contactPassed.id, contactPassed);
+    const { _id, name, email, phone, type } = bandPassed; //destructuring, EACH BAND
+    // console.log("BandItem PAGE, bandPassed, BAND #", bandPassed.id, bandPassed);
     
     const onDelete = () => {
-        deleteContact(_id);
+        deleteBand(_id);
         clearCurrent();
     }
 
@@ -42,7 +42,7 @@ const ContactItem = ({ contactPassed }) => {   //{contactPassed} is the prop pas
             </ul>
 
             <p>
-                <button className="btn btn-dark btn-sm" onClick={ () => setCurrent(contactPassed)}>Edit</button>
+                <button className="btn btn-dark btn-sm" onClick={ () => setCurrent(bandPassed)}>Edit</button>
                 <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button>
             </p>
 
@@ -50,6 +50,6 @@ const ContactItem = ({ contactPassed }) => {   //{contactPassed} is the prop pas
     );
 };
 
-ContactItem.propTypes = { contactPassed: PropTypes.object.isRequired };
+BandItem.propTypes = { bandPassed: PropTypes.object.isRequired };
 
-export default ContactItem;
+export default BandItem;
