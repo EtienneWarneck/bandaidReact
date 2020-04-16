@@ -2,7 +2,7 @@
 //A middleware is just a function that has access to req and res cycle and req and res object.
 // Everytime we hit an enpoint we can fire off this middleware.
 
-//CHECK TO SEE IF THERE'S A TOKEN IN THE HEADER TO ACCESS CONTACTS
+//CHECK TO SEE IF THERE'S A TOKEN IN THE HEADER TO ACCESS BANDS
 //TO PROTECT A ROUTE
 
 const jwt = require('jsonwebtoken');

@@ -18,7 +18,7 @@ app.use(express.json({ extended: false }));
 
 //remove for deployment:
 // app.get('/', (req, res) =>
-//     res.json({ msg: "Welcome to Contact Keeper API" }));
+//     res.json({ msg: "Welcome to Band Keeper API" }));
 
 //Define Routes
 //Everything that goes to /api/ PATH get forwarded into the file ROUTE that is required

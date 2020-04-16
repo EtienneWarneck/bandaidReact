@@ -60,7 +60,7 @@ router.post('/', [
 
             await user.save(); //save user to DB
 
-            //object we want to send in the token to access all the contacts
+            //object we want to send in the token to access all the bands
             //the payload is the part of transmitted data that is the actual intended message
             const payload = { //create the payload
                 user: {

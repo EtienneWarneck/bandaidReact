@@ -42,4 +42,4 @@ const BandSchema = mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('band', ContactSchema);
+module.exports = mongoose.model('band', BandSchema);

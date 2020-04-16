@@ -30,7 +30,7 @@ const BandState = props => {
 
     // HOOK useReducer()
     // sends actions to the switch statement
-    // dispatch is a FUNCTION ("envoyer") objects 
+    // dispatch ("envoyer") is a FUNCTION that sends objects 
     // An alternative to useState.
     // Returns the current state paired with a dispatch method. 
     // There are two different ways to initialize useReducer state.
@@ -43,12 +43,14 @@ const BandState = props => {
     const getBands = async () => { //no config bc not sending any body
 
         try {
-            const res = await axios.get('/api/bands'); //GET res
+            const res = await
+                axios.get('/api/bands'); //GET res
 
             dispatch({
                 type: GET_BANDS,
                 payload: res.data
             }) //still receiving body: all of the users bands
+
         } catch (err) {
             dispatch({
                 type: BAND_ERROR,
@@ -119,60 +121,63 @@ const BandState = props => {
         }
     };
 
-//Clear Bands
-const clearBands = () => {
-    dispatch({ type: CLEAR_BANDS });
-};
+    //Clear Bands
+    const clearBands = () => {
+        dispatch({ type: CLEAR_BANDS });
+    };
 
-//Set Current RIGHT, BUTTON: Edit 
-const setCurrent = band => {
-    dispatch({ type: SET_CURRENT, payload: band }); //dispatch to reducer
-};
+    //Set Current RIGHT, BUTTON: Edit 
+    const setCurrent = band => {
+        dispatch({ type: SET_CURRENT, payload: band }); //dispatch to reducer
+    };
 
-//Clear Current LEFT, BUTTON: Clear ONLY used when current = 
-const clearCurrent = () => {
-    dispatch({ type: CLEAR_CURRENT }); // 2values sent to reducer
-};
+    //Clear Current LEFT, BUTTON: Clear ONLY used when current = 
+    const clearCurrent = () => {
+        dispatch({ type: CLEAR_CURRENT }); // 2values sent to reducer
+    };
 
-//FILTER function
-const filterBands = text => {
-    dispatch({ type: FILTER_BANDS, payload: text });
-};
-//Clear Filter
-const clearFilter = () => {
-    dispatch({ type: CLEAR_FILTER }); // resetting to null
-};
+    //FILTER function
+    const filterBands = text => {
+        dispatch({ type: FILTER_BANDS, payload: text });
+    };
+    //Clear Filter
+    const clearFilter = () => {
+        dispatch({ type: CLEAR_FILTER }); // resetting to null
+    };
 
-return (
-    //wrap entire app with the BandContext OBJECT
-    <BandContext.Provider
-        value={
-            {
-                bands: state.bands,
-                current: state.current,
-                filtered: state.filtered,
-                error: state.error,
-                getBands,
-                addBand,
-                deleteBand,
-                setCurrent, //to Edit existing band
-                clearCurrent,
-                updateBand,
-                filterBands,
-                clearFilter,
-                clearBands
-            }}
-    >
-        {console.log("state.bands", state.bands)}
-        {console.log("state.current", state.current)}
-        {console.log("state.filtered", state.filtered)}
+    return (
+        //wrap entire app with the BandContext OBJECT
+        <BandContext.Provider
+            value={
+                {
+                    //
+                    bands: state.bands,
+                    current: state.current,
+                    filtered: state.filtered,
+                    error: state.error,
 
-        {props.children}
+                    //functions
+                    getBands,
+                    addBand,
+                    deleteBand,
+                    setCurrent, //to Edit existing band
+                    clearCurrent,
+                    updateBand,
+                    filterBands,
+                    clearFilter,
+                    clearBands
+                }}
+        >
+            {console.log("state.bands", state.bands)}
+            {console.log("state.current", state.current)}
+            {console.log("state.filtered", state.filtered)}
 
-        {console.log("PROPS.CHILDREN:", props.children)}
+            {props.children}
 
-    </BandContext.Provider>
-)
+            {console.log("PROPS.CHILDREN:", props.children)}
+
+        </BandContext.Provider>
+    )
 }
 
 export default BandState;
