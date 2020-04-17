@@ -44,7 +44,7 @@ const Navbar = ({ title, icon }) => {
 
 
     return (
-        <nav>   
+        <nav className="nav">   
              <div className="divLogo">
                     <img src={bandaid} alt="Logo" className="logoNav" />
                 </div>
@@ -72,6 +72,7 @@ const Navbar = ({ title, icon }) => {
                     <Link to="/login">Login</Link>
                 </li> */}
             </ul>
+            <div className="backImage"></div>
         </div>
         </nav>
     )

@@ -11,7 +11,7 @@
 
 * {
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 0;
   padding: 0;
 }
@@ -22,6 +22,19 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+}
+
+.backImage {
+  /* border: 10px solid red; */
+  height: 450px;
+  width:65%;
+  background-image: url("./components/layout/homeImg.png");
+  background-repeat: no-repeat;
+  text-align: center;
+  margin: auto;
+  margin-top: 80px;
+
+
 }
 
 a {
@@ -214,7 +227,12 @@ float: left;
 
 .btn-block {
   display: block;
-  width: 100%;
+  width: 80%;
+  /* margin: auto; */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5em;
+  background-color: yellow !important;
 }
 
 .btn-sm {
@@ -246,7 +264,7 @@ float: left;
 .badge-primary,
 .alert-primary {
   background: var(--primary-color);
-  color: #fff;
+  /* color: #fff; */
 }
 
 .btn-light,
@@ -343,9 +361,13 @@ button {
 
 .form-container {
   max-width: 500px;
+  height: auto;
   margin: 2rem auto;
   overflow: hidden;
   padding: 0 2rem;
+  background-color: rgba(236,214,110, 0.8);
+  border-radius: 1em;
+  border: 2px solid blue;
 }
 
 .form-container h1,
@@ -379,12 +401,21 @@ table th {
   margin-top: 0;
 } */
 .navbar {
-  border:1px solid rgb(28, 26, 43);
+  border:1px solid rgb(16, 4, 109);
   margin-top: 0px;
   height: 100px;
   width: 100%;
   /* background-color:rgb(28, 26, 43); */
 } 
+
+
+
+/* .homeImg {
+  width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}  */
 
 .navbar ul {
   display: flex;
