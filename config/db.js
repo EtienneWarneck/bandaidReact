@@ -5,9 +5,14 @@ const db = config.get('mongoURI');
 const connectDB = async () => {
   try {
     await mongoose.connect(db, {
-      useNewUrlParser: true,
+      useNewUrlParser: true, //false by default.
+      //Set to true to make all connections set the useNewUrlParser option by default.
+
       useCreateIndex: true,
-      useFindAndModify: false,
+      
+      useFindAndModify: false, // true by default.
+      //Set to false to make findOneAndUpdate() and findOneAndRemove() use native findOneAndUpdate() rather than findAndModify()
+
       useUnifiedTopology: true,
     });
 

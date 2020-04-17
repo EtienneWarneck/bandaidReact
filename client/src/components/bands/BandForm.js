@@ -19,17 +19,19 @@ const BandForm = () => {
     // The function does not merge the content, it replaces it.
     // useState can be used as many times as we want. 
     // Multiple useState() are possible and will survive other useState() changes. That is how it is intented to be used.
-    // Only use on useState() with objects when multiple things need to be changed together.
+    // Only use useState() with objects when multiple things need to be changed together.
     // React doesn't merge automatically old and new data = more flexibility (state is merged in class-based)
     // Independent from other places. So we can simply share functionalities between components.
-    // Destructuring: band is the CHANGING STATE OF THE FORM, the data. setUserBand to update the data.
+    // Destructuring: userBand is the CHANGING STATE OF THE FORM, the data. setUserBand to update the data.
     // ALWAYS used on root level, NEVER in a nested function or if statement,...
-
     const [userBand, setUserBand] = useState({ //We declare a state variable called userBand and set it to :
         name: '',
         email: '',
         phone: '',
-        type: 'hobbyist'
+        type: 'hobbyist',
+        setup: '',
+        description: '',
+        youtubeVideoId: ''
     });
 
     //Pull the values out of userBand.
@@ -69,9 +71,9 @@ const BandForm = () => {
                 email: '',
                 phone: '',
                 type: 'professional',
-                setup,
-                description,
-                youtubeVideoId
+                setup: '',
+                description: '',
+                youtubeVideoId: ''
             });
         }
     }, [bandContext, current]); //adding dependencies. useEffect will only be called if those change. ( similar to componentDidMount() )
@@ -112,6 +114,27 @@ const BandForm = () => {
                 value={phone}
                 onChange={onChange}
             />
+            <input
+                type="setup"
+                placeholder="setup"
+                name="setup"
+                value={setup}
+                onChange={onChange}
+            />
+            <textarea
+                type="description"
+                placeholder="description"
+                name="description"
+                value={description}
+                onChange={onChange}
+            />
+            <input
+                type="youtubeVideoId"
+                placeholder="youtubeVideoId"
+                name="youtubeVideoId"
+                value={youtubeVideoId}
+                onChange={onChange}
+            />
 
             <h5>Band Type:</h5>
             <input
@@ -121,6 +144,7 @@ const BandForm = () => {
                 checked={type === 'hobbyist'}
                 onChange={onChange}
             />Hobbyist {' '}
+            
             <input
                 type="radio"
                 name="type"

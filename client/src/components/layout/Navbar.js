@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import BandContext from '../../context/band/bandContext';
+import bandaid from "./bandaid.png";
 
 
 const Navbar = ({ title, icon }) => {
@@ -11,7 +12,7 @@ const Navbar = ({ title, icon }) => {
     const bandContext = useContext(BandContext);
 
     const { isAuthenticated, logout, user } = authContext;
-    const { clearBands} = bandContext;
+    const { clearBands } = bandContext;
 
     const onLogout = () => {
         logout();
@@ -43,12 +44,19 @@ const Navbar = ({ title, icon }) => {
 
 
     return (
+        <nav>   
+             <div className="divLogo">
+                    <img src={bandaid} alt="Logo" className="logoNav" />
+                </div>
         <div className="navbar bg-primary">
-            <h1>
+          {/* <div className="divLogo"> */}
+            {/* </div> */}
+           
+            {/* <h1>
                 <i className={icon} >
-                    {title}
+                  {title}
                 </i>
-            </h1>
+            </h1> */}
             <ul>
                 {isAuthenticated ? authLinks : guestLinks}
                 {/* <li>
@@ -65,6 +73,7 @@ const Navbar = ({ title, icon }) => {
                 </li> */}
             </ul>
         </div>
+        </nav>
     )
 }
 

@@ -17,8 +17,8 @@ app.use(express.json({ extended: false }));
 // app.get('/', (req,res) => res.send("Hello World"));
 
 //remove for deployment:
-// app.get('/', (req, res) =>
-//     res.json({ msg: "Welcome to Band Keeper API" }));
+app.get('/', (req, res) =>
+    res.json({ msg: "Welcome to Band Keeper API" }));
 
 //Define Routes
 //Everything that goes to /api/ PATH get forwarded into the file ROUTE that is required
@@ -27,13 +27,13 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/bands', require('./routes/bands'))
 
 //Serve static assets REACT in production
-if (process.env.NODE_ENV === 'production') { //check environment, if in production
-    app.use(express.static('client/build')); //load static react build folder
-    //if we hit homepage, load index.html
-    app.get('*', (req, res) =>
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    );
-}
+// if (process.env.NODE_ENV === 'production') { //check environment, if in production
+//     app.use(express.static('client/build')); //load static react build folder
+//     //if we hit homepage, load index.html
+//     app.get('*', (req, res) =>
+//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+//     );
+// }
 
 //prod var or whatever we want
 const PORT = process.env.PORT || 5000;
