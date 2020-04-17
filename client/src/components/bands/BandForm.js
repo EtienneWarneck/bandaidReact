@@ -29,15 +29,26 @@ const BandForm = () => {
         name: '',
         email: '',
         phone: '',
-        type: 'personal'
+        type: 'hobbyist'
     });
 
     //Pull the values out of userBand.
-    const { name, email, phone, type } = userBand;
+    const {
+        name,
+        email,
+        phone,
+        type,
+        setup,
+        description,
+        youtubeVideoId
+    } = userBand;
+
+
 
     //a function to use on every input's change. 
     const onChange = e => setUserBand({ ...userBand, [e.target.name]: e.target.value })
 
+    //
     const submitForm = e => {
         e.preventDefault();
         if (current === null) { //if nothing has changed, (if the Edit button wasn't pressed)
@@ -57,10 +68,13 @@ const BandForm = () => {
                 name: '',
                 email: '',
                 phone: '',
-                type: 'professional'
+                type: 'professional',
+                setup,
+                description,
+                youtubeVideoId
             });
         }
-    },[bandContext, current]); //adding dependencies. useEffect will only be called if those change. ( similar to componentDidMount() )
+    }, [bandContext, current]); //adding dependencies. useEffect will only be called if those change. ( similar to componentDidMount() )
 
 
     const clearAll = () => {
@@ -103,10 +117,10 @@ const BandForm = () => {
             <input
                 type="radio"
                 name="type"
-                value="personal"
-                checked={type === 'personal'}
+                value="hobbyist"
+                checked={type === 'hobbyist'}
                 onChange={onChange}
-            />Personal {' '}
+            />Hobbyist {' '}
             <input
                 type="radio"
                 name="type"
@@ -122,6 +136,8 @@ const BandForm = () => {
                     value={current ? 'Update Band' : 'Add Band'}
                     className="btn btn-primary btn-block"
                 />
+
+
 
             </div>
             {current && (
