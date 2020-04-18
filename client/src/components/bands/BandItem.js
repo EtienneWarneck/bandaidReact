@@ -25,7 +25,7 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
                 {name}{' '} {/* add space between fname and lname*/}
                 <span
                     style={{ float: 'right' }}
-                    className={'badge ' + (type === 'professional' ? 'badge-success' : 'badge-primary')}>
+                    className={'badge ' + (type === 'professional' ? 'badge-dark' : 'badge-primary')}>
 
                     {type.charAt(0).toUpperCase() + type.slice(1)} {/*first letter uppercase*/}
                 </span>
