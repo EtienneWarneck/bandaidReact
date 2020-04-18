@@ -48,7 +48,7 @@ const Navbar = ({ title, icon }) => {
              <div className="divLogo">
                     <img src={bandaid} alt="Logo" className="logoNav" />
                 </div>
-        <div className="navbar bg-primary">
+        <div className="navbar bg-dark">
           {/* <div className="divLogo"> */}
             {/* </div> */}
            

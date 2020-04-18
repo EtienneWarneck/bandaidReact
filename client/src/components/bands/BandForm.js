@@ -86,7 +86,7 @@ const BandForm = () => {
 
 
     return (
-        <form onSubmit={submitForm}>
+        <form className="formBand" onSubmit={submitForm}>
             {/* <h2 className="text-primary">Add band</h2> */}
             <h2 className="text-primary">{current ? 'Edit Band' : 'Add Band'}</h2>
             <input

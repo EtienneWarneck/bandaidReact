@@ -26,7 +26,7 @@ const BandsFilter = () => {
     }
 
     return (
-        <form>
+        <form className="formFilter">
             <input ref={textForRef} type="text" placeholder="Filter Bands..." onChange={onChange}/> 
         </form>
     )
