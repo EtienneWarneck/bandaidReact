@@ -20,8 +20,11 @@ const Bands = () => {
     }, []);
 
     if (bands !== null && bands.length === 0 && !loading) { //if no bands...
-        return <h4>Please add band</h4>
-    }
+        return (
+        <h4>Please add band</h4>
+            // [backImage] = {display: 'none'}
+        );
+    };
 
     return (
         <Fragment>

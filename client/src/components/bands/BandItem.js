@@ -10,7 +10,7 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
     
     const { deleteBand, setCurrent, clearCurrent } = bandContext; //create an action
     
-    const { _id, name, email, phone, type } = bandPassed; //destructuring, EACH BAND
+    const { _id, name, email, phone, type, setup, description } = bandPassed; //destructuring, EACH BAND
     // console.log("BandItem PAGE, bandPassed, BAND #", bandPassed.id, bandPassed);
     
     const onDelete = () => {
@@ -19,13 +19,13 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
     }
 
     return (
-        <div className='card bg-light'>
+        <div className='card'>
 
             <h3 className='text-primary text-left'>
                 {name}{' '} {/* add space between fname and lname*/}
                 <span
                     style={{ float: 'right' }}
-                    className={'badge ' + (type === 'professional' ? 'badge-dark' : 'badge-primary')}>
+                    className={'badge ' + (type === 'professional' ? 'badge-dark' : 'badge-white')}>
 
                     {type.charAt(0).toUpperCase() + type.slice(1)} {/*first letter uppercase*/}
                 </span>
@@ -38,6 +38,12 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
                 </li>)}
                 {phone && (<li>
                     <i className="fas fa-phone"></i> {phone}
+                </li>)}
+                {setup && (<li>
+                    <i className=""></i> <bold>Setup:</bold> {setup}
+                </li>)}
+                {description && (<li>
+                    <i className=""></i> <bold>Description:</bold> {setup}
                 </li>)}
             </ul>
 
