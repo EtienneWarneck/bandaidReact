@@ -40,16 +40,16 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
                     <i className="fas fa-phone"></i> {phone}
                 </li>)}
                 {setup && (<li>
-                    <i className=""></i> <bold>Setup:</bold> {setup}
+                    <i className=""></i> Setup: {setup}
                 </li>)}
                 {description && (<li>
-                    <i className=""></i> <bold>Description:</bold> {setup}
+                    <i className=""></i> Description: {setup}
                 </li>)}
             </ul>
 
             <p>
-                <button className="btn btn-dark btn-sm" onClick={ () => setCurrent(bandPassed)}>Edit</button>
-                <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button>
+                <button className="btn btn-warning btn-sm" onClick={ () => setCurrent(bandPassed)}>Edit</button>
+                <button className="btn btn-dark btn-sm" onClick={onDelete}>Delete</button>
             </p>
 
         </div>

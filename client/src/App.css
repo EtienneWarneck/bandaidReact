@@ -21,7 +21,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #526169;
+  background-color: #addcf6;
   color: #333;
 }
 
@@ -35,7 +35,7 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 90px;
+  margin-top: 100px;
 }
 
 a {
@@ -306,10 +306,10 @@ ul {
   background: var(--danger-color);
   color: #fff;
 }
-/* .btn-warning, .bg-warning, .badge-warning, .alert-warning {
-  background: var(--warning-color);
+.btn-warning, .bg-warning, .badge-warning, .alert-warning {
+  background: yellow;
   color: black;
-} */
+}
 
 .btn-success, .bg-success, .badge-success, .alert-success {
   background: var(--success-color);
