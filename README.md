@@ -1,8 +1,8 @@
 # bandaidReact
 
-Bandaid is a global freelancing platform where music professionals and skilled hobbyists can present their music with description,a video link and their hourly price to be noticed by clients in search of live musicians for hire.
+Bandaid is a global freelancing platform where music professionals and skilled hobbyists can present their music with a description, a video link and their hourly price to be noticed by clients in search of live musicians for hire.
 
-First developed as a group project during a Bootcamp in Web Development, I continued to work on the project to add new design elements, authentification and a connection to a MOngoDB Atlas Cluster to finalize a fully deployable app.
+(First developed as a group project during a Bootcamp in Web Development, I continued to work on the project to add new design elements, authentification and a connection to MongoDB Atlas Cluster to finalize the fully deployable app.)
 
 Tools: MERN stack
 
