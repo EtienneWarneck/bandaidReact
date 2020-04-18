@@ -8,12 +8,12 @@ Tools: MERN stack
 
 Registration and log in page:
 
-![](assets/registration.png)
-![](assets/login.png)
+![](assets/Registration.png)
+![](assets/Login.png)
 
 Adding and updating bands:
 
-![](assets/filtering.png)
+![](assets/Filtering.png)
 ![](assets/)
 
 Cluster on MongoDB.Atlas:
