@@ -18,5 +18,5 @@ Adding and updating bands:
 
 Cluster on MongoDB.Atlas:
 
-![](assets/)
+![](assets/Mongo.png)
 
