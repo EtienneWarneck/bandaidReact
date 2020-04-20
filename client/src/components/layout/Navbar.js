@@ -23,7 +23,9 @@ const Navbar = ({ title, icon }) => {
 
     const authLinks = (
         <Fragment>
-            <li className="welcome">Welcome</li>
+            <li>
+                <Link to="/welcome">Welcome</Link>
+            </li>
             <li>{user && user.name}</li>
             <li>
                 <a onClick={onLogout} href="#!">
@@ -36,7 +38,9 @@ const Navbar = ({ title, icon }) => {
 
     const guestLinks = (
         <Fragment>
-            <li>Welcome</li>
+            <li>
+                <Link to="/welcome">Welcome</Link>
+            </li>
             <li>
                 <Link to="/register">Register</Link>
             </li>
@@ -48,22 +52,22 @@ const Navbar = ({ title, icon }) => {
 
 
     return (
-        <nav className="nav">   
-             <div className="divLogo">
-                    <img src={bandaid} alt="Logo" className="logoNav" />
-                </div>
-        <div className="navbar ">
-          {/* <div className="divLogo"> */}
-            {/* </div> */}
-           
-            {/* <h1>
+        <nav className="nav">
+            <div className="divLogo">
+                <img src={bandaid} alt="Logo" className="logoNav" />
+            </div>
+            <div className="navbar ">
+                {/* <div className="divLogo"> */}
+                {/* </div> */}
+
+                {/* <h1>
                 <i className={icon} >
                   {title}
                 </i>
             </h1> */}
-            <ul>
-                {isAuthenticated ? authLinks : guestLinks}
-                {/* <li>
+                <ul>
+                    {isAuthenticated ? authLinks : guestLinks}
+                    {/* <li>
                     <Link to="/">Home</Link>
                 </li>
                 <li>
@@ -75,9 +79,9 @@ const Navbar = ({ title, icon }) => {
                 <li>
                     <Link to="/login">Login</Link>
                 </li> */}
-            </ul>
-            <div className="backImage"></div>
-        </div>
+                </ul>
+                <div className="backImage"></div>
+            </div>
         </nav>
     )
 }

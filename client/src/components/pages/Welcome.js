@@ -1,84 +1,55 @@
-import React from 'react';
+import React, { Component } from "react";
+import Search from '../layout/Search';
+import axios from 'axios';
+import Bands from '../bands/Bands'
 
-class Welcome extends React.Component {
-    // state = {
-    //     text: ""
-    // }
-    constructor() {
-        super();
-        this.textInput = React.createRef();
-        // state = { }
-    }
+class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      results: [],
+      bands: [],
+      genreSearch: "",
+      linkYouTube: []
+    };
+    console.log("RESULTS and GENRE: ", this.state)
+  }
 
-    // static propTypes = {
-    //     send: PropTypes.func
-    // };
+  //load data from a remote endpoint:
+  componentDidMount() {
+    axios.get('http://localhost:3001/bands').then(res => {
+      console.log("axios get", res);
+      this.setState({ bands: res.data });
+    });
+  };
+
+  //passing search input to change state 
+  handleGenre = (genre) => {
+    console.log("passing : ", genre);
+    this.setState({
+      genreSearch: genre
+    }, function () {
+      console.log("genreSearch: ", this.state.genreSearch);
+    });
+  };
 
 
-    onChange = e => this.setState({ [e.target.name]: e.target.value });
-
-    // onSubmit = (genre) => {
-    //     // e.preventDefault();
-    //     console.log("SUBMIT", genre)
-    //     console.log("PROPS", this.props)
-    //     console.log("state", this.text)
-
-    //     this.props.searchResult(this.state.text);
-    //     // this.setState({ text: "" });
-    // }
-
-    render() {
-
-        const { send } = this.props;
-
-        // console.log("RENDER PROPS", this.props) 
-
-        return (
-            <React.Fragment>
-
-                        <div className="whiteSpace"></div>
-
-                    <div className="container">
-                        <form
-                            className="formSearch"
-                            // onSubmit={this.onSubmit}
-                            >
-
-                            <input //Search input
-                                className="searchInput"
-                                type="text"
-                                name="text"
-                                placeholder="Search band by genre to book..."
-                                autoComplete="off"
-                                // value={this.state.text}
-                                // onChange={this.onChange}
-                                ref={this.textInput}
-
-                                >
-                            </input>
-
-                            <button //Search button 
-                                type="button"
-                                value="search"
-                                className="searchButton"
-                                // onClick={()=>this.props.searchResult(this.state.text)}
-                                // disabled={!(this.state. && this.state.)}
-                                // onClick={ () => this.onSubmit(this.state.text)}
-                                // onClick={() => this.props.searchResult(this.state.text)}
-                                onClick={() => {
-                                    send(this.textInput.current.value);
-                                
-                                }}
-                            // style={}     
-                            > Search
-                        </button>
-                        </form>
-                    </div>
-
-            </React.Fragment>
-
-        );
-    }
+  render() {
+    return (
+      <div className="welcomeDiv" >
+        <Search
+          send={(prop) => {   //prop = this.textInput.current.value in Search.js
+            // console.log(prop); //input
+            this.handleGenre(prop)
+          }}
+        />
+        <Bands
+          bands={this.state.bands}
+          genre={this.state.genreSearch}
+          linkYouTube={this.state.youtubeVideo} />
+      </div>
+    );
+  }
 }
 
-export default Welcome
+export default Home;
