@@ -53,7 +53,7 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
                     <i className=""></i> Description: {description}
                 </li>)}
                 { youtubeVideoId && (<li>
-                    <ReactYouTubeLink videoId={bandPassed} />
+                    <ReactYouTubeLink videoId={youtubeVideoId} />
                 </li>)}
             </ul>
 
