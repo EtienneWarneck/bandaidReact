@@ -1,18 +1,25 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import BandContext from '../../context/band/bandContext';
+import ReactYouTubeLink from '../ReactYoutube/ReactYouTubeLink';
+import BandForm from './BandForm'
 
 const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in from Bands.js
 
 //USE CONTEXT
     const bandContext = useContext(BandContext); //holds all the data
     // console.log("BandItem PAGE, useContext(), ALL BANDS", bandContext)
-    
+    // const bandForm = useContext(BandForm);
+
+
     const { deleteBand, setCurrent, clearCurrent } = bandContext; //create an action
     
-    const { _id, name, email, phone, type, setup, description } = bandPassed; //destructuring, EACH BAND
+    const { _id, name, email, phone, type, genre, description, youtubeVideoId } = bandPassed; //destructuring, EACH BAND
     // console.log("BandItem PAGE, bandPassed, BAND #", bandPassed.id, bandPassed);
     
+    // const {youtubeVideoId} = bandForm;
+    // console.log("BandItem.js, videoId", youtubeVideoId)
+
     const onDelete = () => {
         deleteBand(_id);
         clearCurrent();
@@ -39,11 +46,14 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
                 {phone && (<li>
                     <i className="fas fa-phone"></i> {phone}
                 </li>)}
-                {setup && (<li>
-                    <i className=""></i> Setup: {setup}
+                {genre && (<li>
+                    <i className=""></i> Genre: {genre}
                 </li>)}
                 {description && (<li>
-                    <i className=""></i> Description: {setup}
+                    <i className=""></i> Description: {description}
+                </li>)}
+                { youtubeVideoId && (<li>
+                    <ReactYouTubeLink videoId={bandPassed} />
                 </li>)}
             </ul>
 

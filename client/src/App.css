@@ -375,7 +375,7 @@ input {
   color: #888;
 }
 
-input[type='text'], input[type='email'], input[type='phone'], input[type='password'], input[type='date'], input[type='setup'], input[type='youtubeVideoId'], select, textarea {
+input[type='text'], input[type='email'], input[type='phone'], input[type='password'], input[type='date'], input[type='genre'], input[type='youtubeVideoId'], select, textarea {
   display: block;
   width: 100%;
   padding: 0.4rem;

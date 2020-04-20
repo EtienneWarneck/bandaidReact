@@ -46,7 +46,8 @@ class Home extends Component {
         <Bands
           bands={this.state.bands}
           genre={this.state.genreSearch}
-          linkYouTube={this.state.youtubeVideo} />
+          linkYouTube={this.state.youtubeVideo} 
+        />
       </div>
     );
   }

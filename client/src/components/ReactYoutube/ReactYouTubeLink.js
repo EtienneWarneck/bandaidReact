@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import YouTube from 'react-youtube';
 
-
+//URL
 //https://www.youtube.com/watch?v=2_AInJHlK6Q
+//share link YouTube- videoID
 //https://youtu.be/2_AInJHlK6Q
-export class ReactYouTubeLink extends Component {
+class ReactYouTubeLink extends Component{
 
-    videoOnReady(event) {
+   videoOnReady(event) {
         // access to player in all event handlers via event.target
         event.target.pauseVideo();
         console.log("reactyoutubelink:", event.target)
-    }
+    };
 
     render() {
         const opts = {
@@ -21,7 +22,8 @@ export class ReactYouTubeLink extends Component {
             }
         };
 
-        const {videoId} = this.props //UNDEFINED. Not sure what should we pass here...
+        // const {videoId} = this.props //UNDEFINED. Not sure what should we pass here...
+        const {videoId} = youtubeVideoId;
         console.log("RYTL.js videoId:", videoId)
  
         return (

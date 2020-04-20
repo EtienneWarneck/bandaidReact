@@ -29,7 +29,7 @@ const BandForm = () => {
         email: '',
         phone: '',
         type: 'hobbyist',
-        setup: '',
+        genre: '',
         description: '',
         youtubeVideoId: ''
     });
@@ -40,7 +40,7 @@ const BandForm = () => {
         email,
         phone,
         type,
-        setup,
+        genre,
         description,
         youtubeVideoId
     } = userBand;
@@ -71,7 +71,7 @@ const BandForm = () => {
                 email: '',
                 phone: '',
                 type: 'professional',
-                setup: '',
+                genre: '',
                 description: '',
                 youtubeVideoId: ''
             });
@@ -115,10 +115,10 @@ const BandForm = () => {
                 onChange={onChange}
             />
             <input
-                type="setup"
-                placeholder="setup"
-                name="setup"
-                value={setup}
+                type="genre"
+                placeholder="genre"
+                name="genre"
+                value={genre}
                 onChange={onChange}
             />
             <textarea
@@ -144,7 +144,7 @@ const BandForm = () => {
                 checked={type === 'hobbyist'}
                 onChange={onChange}
             />Hobbyist {' '}
-            
+
             <input
                 type="radio"
                 name="type"

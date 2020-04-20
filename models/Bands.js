@@ -20,7 +20,7 @@ const BandSchema = mongoose.Schema({
         type: String,
         default: "personal"
     },
-    setup: {
+    genre: {
         type: String,
         required: true
     },
