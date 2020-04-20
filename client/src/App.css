@@ -131,7 +131,7 @@ ul {
 /* List */
 
 .list {
-  margin: 0.5rem 0;
+  margin: 0.5rem 0rem;
 }
 
 .list li {
@@ -429,7 +429,7 @@ color: yellow;
 
 .navbar ul {
   display: flex;
-  margin-left: 80%;
+  margin-left: 75%;
   margin-top: 50px;
   /* text-align: right; */
 }
@@ -441,11 +441,11 @@ color: yellow;
 }
 
 .navbar a:hover {
-  color: var(--light-color);
+  color: yellow;
 }
 
-.navbar .welcome span {
-  margin-right: 0.6rem;
+.welcome {
+  margin-right: 1rem;
 }
 
 .formBand, .formFilter {

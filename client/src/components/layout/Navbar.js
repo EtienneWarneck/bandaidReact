@@ -19,9 +19,12 @@ const Navbar = ({ title, icon }) => {
         clearBands();
     }
 
+
+
     const authLinks = (
         <Fragment>
-            <li>Hello {user && user.name}</li>
+            <li className="welcome">Welcome</li>
+            <li>{user && user.name}</li>
             <li>
                 <a onClick={onLogout} href="#!">
                     <i className="fas fa-sign-out-alt"></i>
@@ -33,6 +36,7 @@ const Navbar = ({ title, icon }) => {
 
     const guestLinks = (
         <Fragment>
+            <li>Welcome</li>
             <li>
                 <Link to="/register">Register</Link>
             </li>
