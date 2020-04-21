@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
+import Search from '../layout/Search'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
 
@@ -15,6 +16,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
                     < Redirect to='/welcome' />
                 ) : (
                         <Component {...props} />
+                       
                     )
             }
         />

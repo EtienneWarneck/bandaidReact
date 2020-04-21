@@ -25,7 +25,7 @@ const AuthState = props => {
     const initialState = {
         token: localStorage.getItem('token'), //access browser localStorage (vanilla JS)
         isAuthenticated: null, //are we logged in or not 
-        loading: true, //spinner 
+        loading: false, //spinner 
         user: null,
         error: null
     };

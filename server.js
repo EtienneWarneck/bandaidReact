@@ -26,6 +26,7 @@ app.get('/', (req, res) =>
 app.use('/api/users', require('./routes/user'))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/bands', require('./routes/bands'))
+app.use('/api/welcome', require('./routes/welcome'))
 
 //Serve static assets REACT in production
 // if (process.env.NODE_ENV === 'production') { //check environment, if in production

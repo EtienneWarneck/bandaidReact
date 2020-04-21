@@ -15,7 +15,7 @@ const Login = (props) => {
     useEffect(() => {
 
         if (isAuthenticated) {
-            props.history.push('/') //once authenticated REDIRECTED
+            props.history.push('/home') //once authenticated REDIRECTED
         }
         if (error === 'email not found or invalid credential') {
             setAlert(error, 'danger');

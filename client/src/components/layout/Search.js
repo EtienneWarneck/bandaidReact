@@ -1,4 +1,5 @@
 import React from 'react';
+import Bands from '../bands/Bands'
 
 class Search extends React.Component {
     // state = {
@@ -69,6 +70,7 @@ class Search extends React.Component {
                         </button>
 
                 </form>
+                <Bands/>
 
 
             </React.Fragment>
