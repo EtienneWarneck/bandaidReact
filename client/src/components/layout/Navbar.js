@@ -27,7 +27,7 @@ const Navbar = ({ title, icon }) => {
             </li> */}
             <li>{user && user.name}</li>
             <li>
-                <a onClick={onLogout} href="/welcome">
+                <a onClick={onLogout} href="/">
                     <i className="fas fa-sign-out-alt"></i>
                     <span className="hide-sm">Logout</span> {/* in sm show only icon*/}
                 </a>
