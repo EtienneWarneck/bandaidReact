@@ -7,10 +7,10 @@ const User = require('../models/User');
 const Band = require('../models/Bands');
 
 
-//route GET endpoint: api/bands
-// get all of the user's bands
+//route GET endpoint: api/welcome
+// get all of the bands
 //private
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
     // res.send('Get all user\'s bands');
     try {
         const bands = await Band.find({}).sort({ date: -1 });

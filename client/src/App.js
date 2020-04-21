@@ -26,7 +26,7 @@ const App = () => {
               <div className='container'>
                 <Alerts />
                 <Switch>
-                  <PrivateRoute exact path='/' component={Welcome} />
+                  <Route exact path='/welcome' component={Welcome} />
                   <Route exact path='/home' component={Home} />
                   <Route exact path='/about' component={About} />
                   <Route exact path='/register' component={Register} />
