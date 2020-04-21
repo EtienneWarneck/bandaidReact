@@ -5,7 +5,7 @@ export default () => (
     <Fragment>
         <img
             src={spinner}
-            style={{ width: '400px', margin: 'auto', display: 'block' }}
+            style={{ width: '10px', margin: 'auto', display: 'block' }}
             alt='Loading...'
         />
     </Fragment>

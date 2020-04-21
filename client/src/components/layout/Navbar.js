@@ -23,9 +23,9 @@ const Navbar = ({ title, icon }) => {
 
     const authLinks = (
         <Fragment>
-            <li>
+            {/* <li>
                 <Link to="/welcome">Welcome</Link>
-            </li>
+            </li> */}
             <li>{user && user.name}</li>
             <li>
                 <a onClick={onLogout} href="#!">

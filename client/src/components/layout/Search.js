@@ -36,44 +36,40 @@ class Search extends React.Component {
         return (
             <React.Fragment>
 
-                        <div className="whiteSpace"></div>
+                <div className="whiteSpace"></div>
 
-                    {/* <div className="containerSearch"> */}
-                        <form
-                            className="formSearch"
-                            // onSubmit={this.onSubmit}
-                            >
+                {/* <div className="containerSearch"> */}
+                <form
+                    className="formSearch"
+                // onSubmit={this.onSubmit}
+                >
 
-                            <input //Search input
-                                className="searchInputWelcomePage"
-                                type="textarea"
-                                name="text"
-                                placeholder="Search band by genre to book..."
-                                autoComplete="off"
-                                // value={this.state.text}
-                                // onChange={this.onChange}
-                                ref={this.textInput}
+                    <input //Search input
+                        className="searchInputWelcomePage"
+                        type="textarea"
+                        name="text"
+                        placeholder=" Search band by genre"
+                        autoComplete="off"
+                        // value={this.state.text}
+                        // onChange={this.onChange}
+                        ref={this.textInput}
 
-                                >
-                            </input>
+                    >
+                    </input>
 
-                            <button //Search button 
-                                type="button"
-                                value="search"
-                                className="searchButton"
-                                // onClick={()=>this.props.searchResult(this.state.text)}
-                                // disabled={!(this.state. && this.state.)}
-                                // onClick={ () => this.onSubmit(this.state.text)}
-                                // onClick={() => this.props.searchResult(this.state.text)}
-                                onClick={() => {
-                                    send(this.textInput.current.value);
-                                
-                                }}
-                            // style={}     
-                            > Search
+                    <button //Search button 
+                        type="button"
+                        value="search"
+                        className="searchButton"
+                        onClick={() => {
+                            send(this.textInput.current.value);
+
+                        }}
+                    > Search
                         </button>
-                        </form>
-                    {/* </div> */}
+
+                </form>
+
 
             </React.Fragment>
 

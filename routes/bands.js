@@ -6,6 +6,7 @@ const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const Band = require('../models/Bands');
 
+
 //route GET endpoint: api/bands
 // get all of the user's bands
 //private
@@ -20,6 +21,7 @@ router.get('/', auth, async (req, res) => {
 
     }
 });
+
 
 //route POST endpoint: api/bands
 // Add new bands

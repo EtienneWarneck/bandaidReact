@@ -38,18 +38,16 @@ const BandState = props => {
     const [state, dispatch] = useReducer(bandReducer, initialState);
 
     //ACTIONS 
-
     //GET
     const getBands = async () => { //no config bc not sending any body
 
         try {
-            const res = await
-                axios.get('/api/bands'); //GET res
+            const res = await axios.get('/api/bands'); //GET res
 
             dispatch({
                 type: GET_BANDS,
                 payload: res.data
-            }) //still receiving body: all of the users bands
+            }) //still receiving body: all of the user's bands
 
         } catch (err) {
             dispatch({
@@ -168,13 +166,13 @@ const BandState = props => {
                     clearBands
                 }}
         >
-            {console.log("state.bands", state.bands)}
+            {/* {console.log("state.bands", state.bands)}
             {console.log("state.current", state.current)}
-            {console.log("state.filtered", state.filtered)}
+            {console.log("state.filtered", state.filtered)} */}
 
             {props.children}
 
-            {console.log("PROPS.CHILDREN:", props.children)}
+            {/* {console.log("PROPS.CHILDREN:", props.children)} */}
 
         </BandContext.Provider>
     )
