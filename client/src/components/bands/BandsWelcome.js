@@ -4,29 +4,33 @@ import BandItemWelcome from './BandItemWelcome';
 import BandContext from '../../context/band/bandContext';
 import Spinner from '../layout/Spinner'
 import ReactYouTubeLink from '../ReactYoutube/ReactYouTubeLink';
+import YouTube from 'react-youtube'
 
 
 
-const BandsWelcome = ({}) => {
+const BandsWelcome = ({ }) => {
 
- //Initialize context:
- const bandContext = useContext(BandContext); //c C
- //now we can access any method associated with that const
+    //Initialize context:
+    const bandContext = useContext(BandContext); //c C
+    //now we can access any method associated with that const
 
- //Accessing bands array, destructuring
- const { bands, filtered, getBands, loading } = bandContext;
+    //Accessing bands array, destructuring
+    const { bands, filtered, getBands, loading } = bandContext;
 
- useEffect(() => {
-     getBands();
-     // eslint-disable-next-line
- }, []);
+    useEffect(() => {
+        getBands();
+        // eslint-disable-next-line
+    }, []);
+
 
     const [data, setData] = useState([])
+    const [dataVideo, setDataVideo] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
             const result = await fetch('http://localhost:5000/api/bands/all')
-            // const result = await fetch('https://orangevalleycaa.org/api/videos')
+                // const result = await fetch('https://orangevalleycaa.org/api/videos')
+                // const result2 = await fetch('https://youtube.com/api/videos')
                 .then(response => response.json())
             // .then((band) => {
             //     // setIsLoaded(true);
@@ -35,6 +39,20 @@ const BandsWelcome = ({}) => {
         }
         fetchData();
     }, [])
+
+    // useEffect(() => {
+    //     const fetchData2 = async () => {
+    //             const result = await fetch('https://youtube.com/api/videos')
+    //             .then(response => response.json())
+    //         // .then((band) => {
+    //         //     // setIsLoaded(true);
+    //         //     getBands(band);
+    //         setDataVideo(result);
+    //     }
+    //     fetchData2();
+    // }, [])
+
+
 
     // if (error) {
 
@@ -45,25 +63,29 @@ const BandsWelcome = ({}) => {
     // } else {
 
     return (
-      <Fragment>
-           {/* <BandItemWelcome bandPassed={band} /> */}
-           {/* <BandItemWelcome bandPassed={band} /> */}
-                <div >
-                    {data.map(band => ( 
-                        <div className="card2" key={band.id}>
+        <Fragment>
+            {/* <BandItemWelcome bandPassed={band} /> */}
+            {/* <BandItemWelcome bandPassed={band} /> */}
+            <div >
+                {data.map(band => (
+                    <div className="card2" key={band.id}>
                         <h2>{band.name}</h2>
                         <h2>{band.genre}</h2>
                         <h2>{band.description}</h2>
                         <h2>Email: {band.email}</h2>
                         <h2>Phone: {band.phone}</h2>
                         {/* <h2>YouTube URL: {band.youtubeUrl}</h2> */}
-                        <video height={200} controls src={band.youtubeUrl} />
+                        {/* <video height={200} controls src={band.youtubeUrl} /> */}
+                        <YouTube
+                            videoId={band.youtubeUrl}
+                            // onReady={this.videoOnReady}
+                        />
                         {/* <h2>Price: </h2> */}
                         {/* <ReactYouTubeLink/> */}
-                        </div>
-                    ))}
                     </div>
-         </Fragment>
+                ))}
+            </div>
+        </Fragment>
 
     );
 }
