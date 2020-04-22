@@ -56,9 +56,10 @@ const BandsWelcome = ({}) => {
                         <h2>{band.description}</h2>
                         <h2>Email: {band.email}</h2>
                         <h2>Phone: {band.phone}</h2>
-                        <h2>YouTube URL: {band.youtubeUrl}</h2>
+                        {/* <h2>YouTube URL: {band.youtubeUrl}</h2> */}
+                        <video height={200} controls src={band.youtubeUrl} />
                         {/* <h2>Price: </h2> */}
-                        <ReactYouTubeLink/>
+                        {/* <ReactYouTubeLink/> */}
                         </div>
                     ))}
                     </div>
