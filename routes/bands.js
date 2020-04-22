@@ -2,9 +2,29 @@ const express = require('express');
 const router = express.Router(); // isolated instance of middleware and routes.
 const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator');
+// var cors = require('cors')
 
 const User = require('../models/User');
 const Band = require('../models/Bands');
+
+
+
+
+
+//route GET endpoint: api/bands
+// get all of bands
+//private
+router.get('/all', async (req, res) => {
+    // res.send('Get all user\'s bands');
+    try {
+        const bands = await Band.find({}).sort({ date: -1 });
+        res.json(bands);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send('Server error')
+
+    }
+});
 
 
 //route GET endpoint: api/bands
@@ -38,7 +58,7 @@ router.post('/', [auth,
         //return 400 bad request with errors.User typed wrong data
         return res.status(400).json({ errors: errors.array() });
     }
-    const { name, email, phone, type, genre, description, youtubeVideoId } = req.body;
+    const { name, email, phone, type, genre, description, youtubeUrl, youtubeVideoId } = req.body;
 
     try {
         const newBand = new Band({
@@ -48,6 +68,7 @@ router.post('/', [auth,
             type,
             genre,
             description,
+            youtubeUrl,
             youtubeVideoId,
             user: req.user.id
         })
@@ -65,7 +86,7 @@ router.post('/', [auth,
 //private
 router.put('/:id', auth, async (req, res) => {
     // res.send('Update band');
-    const { name, email, phone, type, genre, description, youtubeVideoId } = req.body;
+    const { name, email, phone, type, genre, description,youtubeUrl, youtubeVideoId } = req.body;
 
     //Build band object:
     const bandField = {};
@@ -75,6 +96,7 @@ router.put('/:id', auth, async (req, res) => {
     if (type) bandField.type = type;
     if (type) bandField.genre = genre;
     if (type) bandField.description = description;
+    if (type) bandField.youtubeUrl = youtubeUrl;
     if (type) bandField.youtubeVideoId = youtubeVideoId;
 
     try {

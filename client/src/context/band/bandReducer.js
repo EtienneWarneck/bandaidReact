@@ -1,4 +1,5 @@
 import {
+    GET_ALLBANDS,
     GET_BANDS,
     ADD_BAND,
     DELETE_BAND,
@@ -13,6 +14,12 @@ import {
 
 export default (state, action) => {
     switch (action.type) {
+        case GET_ALLBANDS:
+            return {
+                ...state,
+                bands: action.payload,
+                loading: false
+            }
         case GET_BANDS:
             return {
                 ...state,

@@ -31,6 +31,7 @@ const BandForm = () => {
         type: 'hobbyist',
         genre: '',
         description: '',
+        youtubeUrl:'',
         youtubeVideoId: ''
     });
 
@@ -42,6 +43,7 @@ const BandForm = () => {
         type,
         genre,
         description,
+        youtubeUrl,
         youtubeVideoId
     } = userBand;
 
@@ -73,6 +75,7 @@ const BandForm = () => {
                 type: 'professional',
                 genre: '',
                 description: '',
+                youtubeUrl:'',
                 youtubeVideoId: ''
             });
         }
@@ -126,6 +129,13 @@ const BandForm = () => {
                 placeholder="description"
                 name="description"
                 value={description}
+                onChange={onChange}
+            />
+            <input
+                type="youtubeUrl"
+                placeholder="youtubeUrl"
+                name="youtubeUrl"
+                value={youtubeUrl}
                 onChange={onChange}
             />
             <input
