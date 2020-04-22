@@ -58,7 +58,7 @@ router.post('/', [auth,
         //return 400 bad request with errors.User typed wrong data
         return res.status(400).json({ errors: errors.array() });
     }
-    const { name, email, phone, type, genre, description, youtubeVideoId } = req.body;
+    const { name, email, phone, type, genre, description, youtubeUrl, youtubeVideoId } = req.body;
 
     try {
         const newBand = new Band({
@@ -68,6 +68,7 @@ router.post('/', [auth,
             type,
             genre,
             description,
+            youtubeUrl,
             youtubeVideoId,
             user: req.user.id
         })
@@ -85,7 +86,7 @@ router.post('/', [auth,
 //private
 router.put('/:id', auth, async (req, res) => {
     // res.send('Update band');
-    const { name, email, phone, type, genre, description, youtubeVideoId } = req.body;
+    const { name, email, phone, type, genre, description,youtubeUrl, youtubeVideoId } = req.body;
 
     //Build band object:
     const bandField = {};
@@ -95,6 +96,7 @@ router.put('/:id', auth, async (req, res) => {
     if (type) bandField.type = type;
     if (type) bandField.genre = genre;
     if (type) bandField.description = description;
+    if (type) bandField.youtubeUrl = youtubeUrl;
     if (type) bandField.youtubeVideoId = youtubeVideoId;
 
     try {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 // import Bands from '../bands/Bands'
-import Search from '../../components/bands/BandsWelcome'
-import BandsWelcome from '../../components/layout/Search'
+import Search from '../../components/layout/Search'
+import BandsWelcome from '../../components/bands/BandsWelcome'
 import AuthContext from '../../context/auth/authContext'
 // const axios = require('axios')
 // import axios from 'axios';
@@ -23,7 +23,7 @@ const Welcome = () => {
     return (
             <div>
                 <Search />
-                {/* <BandsWelcome /> */}
+                <BandsWelcome />
             </div>
     )
 }

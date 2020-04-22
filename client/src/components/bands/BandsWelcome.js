@@ -3,21 +3,23 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import BandItemWelcome from './BandItemWelcome';
 import BandContext from '../../context/band/bandContext';
 import Spinner from '../layout/Spinner'
+import ReactYouTubeLink from '../ReactYoutube/ReactYouTubeLink';
 
 
-const BandsWelcome = () => {
 
-    //Initialize context:
-    // const bandContext = useContext(BandContext); //c C
-    // //now we can access any method associated with that const
+const BandsWelcome = ({}) => {
 
-    // //Accessing bands array, destructuring
-    // const { bands, filtered, getBands, loading } = bandContext;
+ //Initialize context:
+ const bandContext = useContext(BandContext); //c C
+ //now we can access any method associated with that const
 
-    // useEffect(() => {
-    //     getBands();
-    //     // eslint-disable-next-line
-    // }, []);
+ //Accessing bands array, destructuring
+ const { bands, filtered, getBands, loading } = bandContext;
+
+ useEffect(() => {
+     getBands();
+     // eslint-disable-next-line
+ }, []);
 
     const [data, setData] = useState([])
 
@@ -43,16 +45,25 @@ const BandsWelcome = () => {
     // } else {
 
     return (
-      // <Fragment>
-                <div>
+      <Fragment>
+           {/* <BandItemWelcome bandPassed={band} /> */}
+           {/* <BandItemWelcome bandPassed={band} /> */}
+                <div >
                     {data.map(band => ( 
-                        <div>
+                        <div className="card2" key={band.id}>
                         <h2>{band.name}</h2>
-                        {/* <video height={200} controls src={video.video_url} /> */}
+                        <h2>{band.genre}</h2>
+                        <h2>{band.description}</h2>
+                        <h2>Email: {band.email}</h2>
+                        <h2>Phone: {band.phone}</h2>
+                        <h2>YouTube URL: {band.youtubeUrl}</h2>
+                        {/* <h2>Price: </h2> */}
+                        <ReactYouTubeLink/>
                         </div>
                     ))}
                     </div>
-        // </Fragment>
+         </Fragment>
+
     );
 }
 // }

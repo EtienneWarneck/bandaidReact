@@ -28,6 +28,10 @@ const BandSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    youtubeUrl: {
+        type: String,
+        required: true
+    },
     youtubeVideoId: {
         type: String,
         required: true
