@@ -12,7 +12,7 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
 
     const { deleteBand, setCurrent, clearCurrent } = bandContext; //create an action
     
-    const { _id, name, email, phone, type, genre, description,youtubeUrl, youtubeVideoId } = bandPassed; //destructuring, EACH BAND
+    const { _id, name, email, phone, type, genre, description, youtubeUrl,youtubeVideoId } = bandPassed; //destructuring, EACH BAND
     // console.log("BandItem PAGE, bandPassed, BAND #", bandPassed.id, bandPassed);
     
     const onDelete = () => {
@@ -22,6 +22,7 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
 
     return (
         <div className='card'>
+            <h1>HELLO</h1>
 
             <h3 className='text-primary text-left'>
                 {name}{' '} {/* add space between fname and lname*/}
@@ -54,12 +55,6 @@ const BandItem = ({ bandPassed }) => {   //{bandpassed} is the prop passed in fr
                     <ReactYouTubeLink videoId={youtubeVideoId} />
                 </li>)}
             </ul>
-
-            <p>
-                <button className="btn btn-warning btn-sm" onClick={ () => setCurrent(bandPassed)}>Edit</button>
-                <button className="btn btn-dark btn-sm" onClick={onDelete}>Delete</button>
-            </p>
-
         </div>
     );
 };

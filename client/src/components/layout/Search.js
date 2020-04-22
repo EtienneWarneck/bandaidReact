@@ -70,7 +70,7 @@ class Search extends React.Component {
                         </button>
 
                 </form>
-                <Bands/>
+                {/* <Bands/> */}
 
 
             </React.Fragment>
