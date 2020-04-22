@@ -4,6 +4,7 @@ import axios from 'axios';
 import BandContext from './bandContext';
 import bandReducer from "./bandReducer";
 import {
+    GET_ALLBANDS,
     GET_BANDS,
     ADD_BAND,
     DELETE_BAND,
@@ -38,6 +39,24 @@ const BandState = props => {
     const [state, dispatch] = useReducer(bandReducer, initialState);
 
     //ACTIONS 
+    //GET ALL
+    const getAllBands = async () => { //no config bc not sending any body
+
+        try {
+            const res = await axios.get('/api/bands/all'); //GET res
+
+            dispatch({
+                type: GET_ALLBANDS,
+                payload: res.data
+            }) //still receiving body: all of the user's bands
+
+        } catch (err) {
+            dispatch({
+                type: BAND_ERROR,
+                payload: err.response.msg
+            })
+        };
+    };
     //GET
     const getBands = async () => { //no config bc not sending any body
 
@@ -57,8 +76,6 @@ const BandState = props => {
         };
     };
 
-
-    //Add LEFT side , BUTTON: Add Band
     const addBand = async band => { //
         // band.id = uuidv4(); //RandomID will be removed when we use MongoDB
         const config = {
@@ -155,6 +172,7 @@ const BandState = props => {
                     error: state.error,
 
                     //functions
+                    getAllBands,
                     getBands,
                     addBand,
                     deleteBand,

@@ -1,4 +1,5 @@
 //bands
+export const GET_ALLBANDS = 'GET_ALLBANDS';
 export const GET_BANDS = 'GET_BANDS';
 export const ADD_BAND = 'ADD_BAND';
 export const DELETE_BAND = 'DELETE_BAND';

@@ -16,6 +16,21 @@ const User = require('../models/User');
 //router.METHOD() provides the routing functionnality
 
 
+// //GET ALL NO AUTH
+router.get('/all', async (req, res) => {
+    // res.send('Get all user\'s bands');
+    try {
+        const bands = await Band.find({}).sort({ date: -1 });
+        res.json(bands);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send('Server error')
+
+    }
+});
+
+
+
 
 //route GET endpoint: api/auth ---------------------------------------------
 //Get logged in user //Need token to get access to this route.
