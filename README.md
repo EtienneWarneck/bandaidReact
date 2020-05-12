@@ -13,6 +13,7 @@ Registration page:
 ![](assets/register.png)
 
 Login page:
+
 ![](assets/login.png)
 
 Adding and updating bands:
