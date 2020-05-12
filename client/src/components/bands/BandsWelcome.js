@@ -4,6 +4,7 @@ import BandItemWelcome from './BandItemWelcome';
 import BandContext from '../../context/band/bandContext';
 import Spinner from '../layout/Spinner'
 import ReactYouTubeLink from '../ReactYoutube/ReactYouTubeLink';
+import ReactYouTubeWelcome from '../ReactYoutube/ReactYouTubeWelcome';
 import YouTube from 'react-youtube'
 
 
@@ -24,7 +25,7 @@ const BandsWelcome = ({ }) => {
 
 
     const [data, setData] = useState([])
-    const [dataVideo, setDataVideo] = useState([])
+    // const [dataVideo, setDataVideo] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -69,19 +70,19 @@ const BandsWelcome = ({ }) => {
             <div >
                 {data.map(band => (
                     <div className="card2" key={band.id}>
-                        <h2>{band.name}</h2>
-                        <h2>{band.genre}</h2>
-                        <h2>{band.description}</h2>
+                        <h2>Name: {band.name}</h2>
+                        <h2>Genre: {band.genre}</h2>
+                        <h2>Description: {band.description}</h2>
                         <h2>Email: {band.email}</h2>
                         <h2>Phone: {band.phone}</h2>
                         {/* <h2>YouTube URL: {band.youtubeUrl}</h2> */}
-                        {/* <video height={200} controls src={band.youtubeUrl} /> */}
-                        <YouTube
-                            videoId={band.youtubeUrl}
-                            // onReady={this.videoOnReady}
-                        />
+                        <video height={200} controls src={band.youtubeUrl} />
+                        {/* <YouTube
+                            videoId={videoId}
+                            onReady={videoOnReady}
+                        /> */}
                         {/* <h2>Price: </h2> */}
-                        {/* <ReactYouTubeLink/> */}
+                        {/* <ReactYouTubeWelcome/> */}
                     </div>
                 ))}
             </div>

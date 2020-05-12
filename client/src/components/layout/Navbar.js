@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import BandContext from '../../context/band/bandContext';
-import bandaid from "./bandaid.png";
+import bandalicious from "./bandalicious.png";
 
 
 const Navbar = ({ title, icon }) => {
@@ -53,7 +53,7 @@ const Navbar = ({ title, icon }) => {
     return (
         <nav className="nav">
             <div className="divLogo">
-                <img src={bandaid} alt="Logo" className="logoNav" />
+                <img src={bandalicious} alt="Logo" className="logoNav" />
             </div>
             <div className="navbar ">
                 {/* <div className="divLogo"> */}

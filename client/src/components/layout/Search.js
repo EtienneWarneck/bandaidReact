@@ -1,5 +1,6 @@
 import React from 'react';
 import Bands from '../bands/Bands'
+import css from 'css';
 
 class Search extends React.Component {
     // state = {
@@ -37,7 +38,10 @@ class Search extends React.Component {
         return (
             <React.Fragment>
 
-                <div className="whiteSpace"></div>
+                <div className="whiteSpace">
+
+                <h1><strong>Book a music band for your space</strong>  </h1>
+                </div>
 
                 {/* <div className="containerSearch"> */}
                 <form
@@ -69,7 +73,11 @@ class Search extends React.Component {
                     > Search
                         </button>
 
+
+                       
                 </form>
+                {/* <div className="backImage"></div> */}
+
                 {/* <Bands/> */}
 
 
