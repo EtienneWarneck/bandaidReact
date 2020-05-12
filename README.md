@@ -8,12 +8,12 @@ MongoDB Atlas cluster, Express, React 16.8+ Hooks (useState, useEffect, useConte
 
 Registration and log in page:
 
-![](assets/Registration.png)
-![](assets/Login.png)
+![](assets/register.png)
+![](assets/login.png)
 
 Adding and updating bands:
 
-![](assets/Filtering.png)
+![](assets/filtering.png)
 ![](assets/)
 
 Cluster on MongoDB.Atlas:
