@@ -16,7 +16,7 @@ Login page:
 
 ![](assets/login.png)
 
-Adding and updating bands:
+Once the user is registered and logged in, the user can delete or update bands:
 
 ![](assets/filtering.png)
 ![](assets/)
