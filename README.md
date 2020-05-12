@@ -6,6 +6,7 @@ Tools: MERN stack, MongoDB Atlas cluster, Express, React 16.8+ Hooks (useState, 
 
 Registration and log in page:
 
+![](assets/welcome.png)
 ![](assets/register.png)
 ![](assets/login.png)
 
