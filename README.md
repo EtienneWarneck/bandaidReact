@@ -4,10 +4,15 @@ Bandaid is a global freelancing platform where music professionals and skilled h
 
 Tools: MERN stack, MongoDB Atlas cluster, Express, React 16.8+ Hooks (useState, useEffect, useContext, useReducer, useRef), CSS and Bootstrap, JWT (JSON Web Token) for authentication, Node.
 
-Registration and log in page:
+Welcome page:
 
 ![](assets/welcome.png)
+
+Registration page:
+
 ![](assets/register.png)
+
+Login page:
 ![](assets/login.png)
 
 Adding and updating bands:
